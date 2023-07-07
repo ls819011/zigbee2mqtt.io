@@ -107,6 +107,11 @@ Enable these modules using
     ProxyPass               / http://localhost:8080/           
     ProxyPassReverse        / http://localhost:8080/
 
+    # Zigbee2MQTT switches protocol from http to websocket
+    # To proxy data transfer over websocket protocol it is necessary to add two following lines to Apache site config
+    ProxyPass /api  ws://localhost:8080/api
+    ProxyPassReverse /api  ws://localhost:8080/api
+
 
    <Proxy *>
    Order deny,allow
